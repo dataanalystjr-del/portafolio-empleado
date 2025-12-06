@@ -15,62 +15,61 @@
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            width: 960px;
+            height: 1300px;
+            overflow: hidden;
         }
         
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            height: 100%;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            overflow-y: auto;
         }
         
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 50px 40px;
+            padding: 30px 25px;
             text-align: center;
-            position: relative;
         }
         
         .logo-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .company-logo {
-            max-width: 280px;
+            max-width: 180px;
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
         }
         
         .employee-name {
-            font-size: 42px;
+            font-size: 32px;
             font-weight: 700;
-            margin: 20px 0 15px;
+            margin: 15px 0 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
         }
         
         .employee-title {
-            font-size: 20px;
+            font-size: 16px;
             opacity: 0.95;
             font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
         }
         
         .org-chart {
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 20px;
+            padding: 12px 20px;
             background: rgba(255,255,255,0.15);
-            border-radius: 15px;
+            border-radius: 12px;
             display: inline-block;
             backdrop-filter: blur(10px);
         }
@@ -78,51 +77,52 @@
         .org-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin: 8px 0;
-            font-size: 15px;
+            gap: 8px;
+            margin: 5px 0;
+            font-size: 13px;
             font-weight: 500;
         }
         
         .content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            padding: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 25px;
         }
         
         .card {
             background: #f8fafc;
-            border-radius: 15px;
-            padding: 30px;
-            border-left: 5px solid #667eea;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         
         .card-title {
-            font-size: 22px;
+            font-size: 17px;
             font-weight: 700;
             color: #1e293b;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
         
         .card-icon {
-            font-size: 28px;
+            font-size: 22px;
         }
         
         .info-row {
             display: flex;
             justify-content: space-between;
-            padding: 14px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #e2e8f0;
+            gap: 10px;
         }
         
         .info-row:last-child {
@@ -132,23 +132,43 @@
         .info-label {
             color: #64748b;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 13px;
+            flex-shrink: 0;
         }
         
         .info-value {
             color: #1e293b;
             font-weight: 700;
             text-align: right;
-            font-size: 15px;
+            font-size: 13px;
+            word-break: break-word;
         }
         
         .footer {
             background: #1e293b;
             color: white;
             text-align: center;
-            padding: 25px;
-            font-size: 14px;
+            padding: 15px;
+            font-size: 12px;
             font-weight: 500;
+        }
+
+        /* Scrollbar personalizado */
+        .container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        .container::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
     </style>
 </head>
@@ -273,7 +293,7 @@
         document.getElementById('area').textContent = getParam('area');
         document.getElementById('cargo').textContent = getParam('cargo');
         document.getElementById('phone').textContent = getParam('phone');
-        document.getElementById('age').textContent = getParam('age');
+        document.getElementById('age').textContent = getParam('age') + ' Años';
         document.getElementById('bloodType').textContent = getParam('blood');
         document.getElementById('profession').textContent = getParam('profession');
         document.getElementById('level').textContent = getParam('level');
@@ -286,4 +306,3 @@
     </script>
 </body>
 </html>
-
