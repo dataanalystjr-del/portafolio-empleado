@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Progan del Caribe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .logo span {
+            color: #4ade80;
+        }
+        
+        .employee-name {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 20px 0 10px;
+            text-transform: uppercase;
+        }
+        
+        .employee-title {
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .org-chart {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .org-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+        
+        .card {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-icon {
+            font-size: 24px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            color: #64748b;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .info-value {
+            color: #1e293b;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #4ade80;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .badge.yellow {
+            background: #fbbf24;
+        }
+        
+        .badge.blue {
+            background: #3b82f6;
+        }
+        
+        .footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PROGAN <span>del Caribe</span></div>
+            <h1 class="employee-name" id="employeeName">CARGANDO...</h1>
+            <p class="employee-title" id="employeeTitle">Perfil Profesional</p>
+            
+            <div class="org-chart">
+                <div class="org-item">📊 <strong id="dept">Departamento</strong></div>
+                <div class="org-item">🏢 <strong id="area">Área</strong></div>
+                <div class="org-item">🎯 <strong id="cargo">Cargo</strong></div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Datos Personales -->
+            <div class="card">
+                <div class="card-title">
+                    <span class="card-icon">👤</span>
+                    Datos Personales
+                </div>
+                <div class="info-row">
+                    <span class="info-label">📞 Teléfono</span>
+                    <span class="info-value" id="phone">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">🎂 Edad</span>
+                    <span class="info-value" id="age">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">🩸 Tipo de Sangre</span>
+                    <span class="info-value" id="bloodType">-</span>
+                </div>
+            </div>
+            
+            <!-- Perfil Profesional -->
+            <div class="card">
+                <div class="card-title">
+                    <span class="card-icon">💼</span>
+                    Perfil Profesional
+                </div>
+                <div class="info-row">
+                    <span class="info-label">🎓 Profesión</span>
+                    <span class="info-value" id="profession">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">📋 Nivel</span>
+                    <span class="info-value" id="level">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">🏢 Departamento</span>
+                    <span class="info-value" id="department">-</span>
+                </div>
+            </div>
+            
+            <!-- Contratación -->
+            <div class="card">
+                <div class="card-title">
+                    <span class="card-icon">📅</span>
+                    Contratación
+                </div>
+                <div class="info-row">
+                    <span class="info-label">📆 Antigüedad</span>
+                    <span class="info-value" id="seniority">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">📄 Tipo Contrato</span>
+                    <span class="info-value" id="contract">-</span>
+                </div>
+            </div>
+            
+            <!-- Afiliaciones -->
+            <div class="card">
+                <div class="card-title">
+                    <span class="card-icon">🏥</span>
+                    Afiliaciones
+                </div>
+                <div class="info-row">
+                    <span class="info-label">🏥 EPS</span>
+                    <span class="info-value" id="eps">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">💰 ARL</span>
+                    <span class="info-value" id="arl">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">💵 AFP</span>
+                    <span class="info-value" id="afp">-</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2025 Progan del Caribe S.A.S. | Sistema de Gestión de Personal
+        </div>
+    </div>
+    
+    <script>
+        // Leer datos de la URL
+        const params = new URLSearchParams(window.location.search);
+        
+        // Función para obtener parámetro o mostrar "-"
+        function getParam(key) {
+            return params.get(key) || '-';
+        }
+        
+        // Llenar datos
+        document.getElementById('employeeName').textContent = getParam('nombre');
+        document.getElementById('employeeTitle').textContent = getParam('cargo');
+        document.getElementById('dept').textContent = getParam('dept');
+        document.getElementById('area').textContent = getParam('area');
+        document.getElementById('cargo').textContent = getParam('cargo');
+        document.getElementById('phone').textContent = getParam('phone');
+        document.getElementById('age').textContent = getParam('age') + ' años';
+        document.getElementById('bloodType').textContent = getParam('blood');
+        document.getElementById('profession').textContent = getParam('profession');
+        document.getElementById('level').textContent = getParam('level');
+        document.getElementById('department').textContent = getParam('dept');
+        document.getElementById('seniority').textContent = getParam('seniority');
+        document.getElementById('contract').textContent = getParam('contract');
+        document.getElementById('eps').textContent = getParam('eps');
+        document.getElementById('arl').textContent = getParam('arl');
+        document.getElementById('afp').textContent = getParam('afp');
+    </script>
+</body>
+</html>
