@@ -31,67 +31,62 @@
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 40px;
+            padding: 50px 40px;
             text-align: center;
             position: relative;
         }
         
         .logo-container {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            align-items: center;
+            margin-bottom: 30px;
         }
         
         .company-logo {
-            width: 80px;
-            height: 80px;
+            max-width: 280px;
+            height: auto;
             object-fit: contain;
-            background: white;
-            padding: 10px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .company-name {
-            font-size: 32px;
-            font-weight: 700;
-            color: white;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
         }
         
         .employee-name {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 700;
-            margin: 20px 0 10px;
+            margin: 20px 0 15px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .employee-title {
-            font-size: 18px;
-            opacity: 0.9;
-            font-weight: 300;
+            font-size: 20px;
+            opacity: 0.95;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .org-chart {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
             display: inline-block;
+            backdrop-filter: blur(10px);
         }
         
         .org-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin: 5px 0;
-            font-size: 14px;
+            gap: 12px;
+            margin: 8px 0;
+            font-size: 15px;
+            font-weight: 500;
         }
         
         .content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             padding: 40px;
         }
@@ -99,28 +94,34 @@
         .card {
             background: #f8fafc;
             border-radius: 15px;
-            padding: 25px;
-            border-left: 4px solid #667eea;
+            padding: 30px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .card-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             color: #1e293b;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .card-icon {
-            font-size: 24px;
+            font-size: 28px;
         }
         
         .info-row {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
+            padding: 14px 0;
             border-bottom: 1px solid #e2e8f0;
         }
         
@@ -131,21 +132,23 @@
         .info-label {
             color: #64748b;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 15px;
         }
         
         .info-value {
             color: #1e293b;
-            font-weight: 600;
+            font-weight: 700;
             text-align: right;
+            font-size: 15px;
         }
         
         .footer {
             background: #1e293b;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             font-size: 14px;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -154,7 +157,6 @@
         <div class="header">
             <div class="logo-container">
                 <img id="companyLogo" class="company-logo" src="" alt="Logo Empresa">
-                <div class="company-name" id="companyName">EMPRESA</div>
             </div>
             
             <h1 class="employee-name" id="employeeName">CARGANDO...</h1>
@@ -261,7 +263,6 @@
         const companyName = getParam('empresa');
         const companyLogo = getParam('logo');
         
-        document.getElementById('companyName').textContent = companyName;
         document.getElementById('companyLogo').src = companyLogo;
         document.getElementById('footer').textContent = `© 2025 ${companyName} | Sistema de Gestión de Personal`;
         
@@ -272,7 +273,7 @@
         document.getElementById('area').textContent = getParam('area');
         document.getElementById('cargo').textContent = getParam('cargo');
         document.getElementById('phone').textContent = getParam('phone');
-        document.getElementById('age').textContent = getParam('age') + ' años';
+        document.getElementById('age').textContent = getParam('age') + ' Años';
         document.getElementById('bloodType').textContent = getParam('blood');
         document.getElementById('profession').textContent = getParam('profession');
         document.getElementById('level').textContent = getParam('level');
