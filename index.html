@@ -14,9 +14,9 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            width: 960px;
-            height: 1300px;
+            background: transparent;
+            width: 912px;
+            height: 1168px;
             overflow: hidden;
         }
         
@@ -25,12 +25,13 @@
             height: 100%;
             background: white;
             overflow-y: auto;
+            overflow-x: hidden;
         }
         
         .header {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 30px 25px;
+            padding: 20px 20px;
             text-align: center;
         }
         
@@ -38,38 +39,38 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
         
         .company-logo {
-            max-width: 180px;
+            max-width: 140px;
             height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 6px 15px rgba(0,0,0,0.3));
         }
         
         .employee-name {
-            font-size: 32px;
+            font-size: 26px;
             font-weight: 700;
-            margin: 15px 0 10px;
+            margin: 12px 0 8px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             line-height: 1.2;
         }
         
         .employee-title {
-            font-size: 16px;
+            font-size: 13px;
             opacity: 0.95;
             font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
         }
         
         .org-chart {
-            margin-top: 20px;
-            padding: 12px 20px;
+            margin-top: 12px;
+            padding: 8px 15px;
             background: rgba(255,255,255,0.15);
-            border-radius: 12px;
+            border-radius: 10px;
             display: inline-block;
             backdrop-filter: blur(10px);
         }
@@ -77,52 +78,46 @@
         .org-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin: 5px 0;
-            font-size: 13px;
+            gap: 6px;
+            margin: 3px 0;
+            font-size: 11px;
             font-weight: 500;
         }
         
         .content {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            padding: 25px;
+            gap: 15px;
+            padding: 18px;
         }
         
         .card {
             background: #f8fafc;
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            border-left: 3px solid #667eea;
         }
         
         .card-title {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 700;
             color: #1e293b;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
         
         .card-icon {
-            font-size: 22px;
+            font-size: 18px;
         }
         
         .info-row {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 8px 0;
             border-bottom: 1px solid #e2e8f0;
-            gap: 10px;
+            gap: 8px;
         }
         
         .info-row:last-child {
@@ -132,7 +127,7 @@
         .info-label {
             color: #64748b;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 11px;
             flex-shrink: 0;
         }
         
@@ -140,7 +135,7 @@
             color: #1e293b;
             font-weight: 700;
             text-align: right;
-            font-size: 13px;
+            font-size: 11px;
             word-break: break-word;
         }
         
@@ -148,14 +143,14 @@
             background: #1e293b;
             color: white;
             text-align: center;
-            padding: 15px;
-            font-size: 12px;
+            padding: 12px;
+            font-size: 11px;
             font-weight: 500;
         }
 
         /* Scrollbar personalizado */
         .container::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         
         .container::-webkit-scrollbar-track {
@@ -163,12 +158,12 @@
         }
         
         .container::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
+            background: #667eea;
+            border-radius: 3px;
         }
         
         .container::-webkit-scrollbar-thumb:hover {
-            background: #555;
+            background: #5568d3;
         }
     </style>
 </head>
@@ -279,14 +274,12 @@
             return params.get(key) || '-';
         }
         
-        // Datos de empresa
         const companyName = getParam('empresa');
         const companyLogo = getParam('logo');
         
         document.getElementById('companyLogo').src = companyLogo;
         document.getElementById('footer').textContent = `© 2025 ${companyName} | Sistema de Gestión de Personal`;
         
-        // Datos de empleado
         document.getElementById('employeeName').textContent = getParam('nombre');
         document.getElementById('employeeTitle').textContent = getParam('cargo');
         document.getElementById('dept').textContent = getParam('dept');
