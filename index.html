@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Progan del Caribe</title>
+    <title>Portafolio - Empleado</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -36,14 +36,28 @@
             position: relative;
         }
         
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
-        .logo span {
-            color: #4ade80;
+        .company-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .company-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
         }
         
         .employee-name {
@@ -126,24 +140,6 @@
             text-align: right;
         }
         
-        .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: #4ade80;
-            color: white;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .badge.yellow {
-            background: #fbbf24;
-        }
-        
-        .badge.blue {
-            background: #3b82f6;
-        }
-        
         .footer {
             background: #1e293b;
             color: white;
@@ -156,7 +152,11 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">PROGAN <span>del Caribe</span></div>
+            <div class="logo-container">
+                <img id="companyLogo" class="company-logo" src="" alt="Logo Empresa">
+                <div class="company-name" id="companyName">EMPRESA</div>
+            </div>
+            
             <h1 class="employee-name" id="employeeName">CARGANDO...</h1>
             <p class="employee-title" id="employeeTitle">Perfil Profesional</p>
             
@@ -245,21 +245,27 @@
             </div>
         </div>
         
-        <div class="footer">
-            © 2025 Progan del Caribe S.A.S. | Sistema de Gestión de Personal
+        <div class="footer" id="footer">
+            © 2025 | Sistema de Gestión de Personal
         </div>
     </div>
     
     <script>
-        // Leer datos de la URL
         const params = new URLSearchParams(window.location.search);
         
-        // Función para obtener parámetro o mostrar "-"
         function getParam(key) {
             return params.get(key) || '-';
         }
         
-        // Llenar datos
+        // Datos de empresa
+        const companyName = getParam('empresa');
+        const companyLogo = getParam('logo');
+        
+        document.getElementById('companyName').textContent = companyName;
+        document.getElementById('companyLogo').src = companyLogo;
+        document.getElementById('footer').textContent = `© 2025 ${companyName} | Sistema de Gestión de Personal`;
+        
+        // Datos de empleado
         document.getElementById('employeeName').textContent = getParam('nombre');
         document.getElementById('employeeTitle').textContent = getParam('cargo');
         document.getElementById('dept').textContent = getParam('dept');
